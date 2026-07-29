@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mahmoud Farouk — ICU and orthopedic physical therapist portfolio.">
+  <title>Mahmoud Farouk | Physiotherapy Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0d1b2d;
+      --panel2:#11253e;
+      --text:#f7fbff;
+      --muted:#a9b8c8;
+      --blue:#4da3ff;
+      --cyan:#57d4d0;
+      --gold:#e3b860;
+      --line:rgba(255,255,255,.11);
+      --shadow:0 24px 60px rgba(0,0,0,.28);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"DM Sans",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 10% 8%,rgba(77,163,255,.15),transparent 28%),
+        radial-gradient(circle at 90% 14%,rgba(87,212,208,.10),transparent 24%),
+        var(--bg);
+      line-height:1.7;
+      overflow-x:hidden;
+    }
+
+    img{display:block;width:100%}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    .container{width:min(1160px,calc(100% - 36px));margin:auto}
+    .section{padding:96px 0}
+    .section-head{max-width:760px;margin-bottom:44px}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      color:var(--cyan);font-size:.79rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:.14em;margin-bottom:12px
+    }
+    .eyebrow::before{content:"";width:30px;height:2px;background:var(--gold)}
+    h1,h2{font-family:"Playfair Display",serif;line-height:1.05}
+    h1{font-size:clamp(3rem,8vw,6.7rem);letter-spacing:-.045em}
+    h2{font-size:clamp(2.25rem,5vw,4rem);margin-bottom:14px}
+    h3{line-height:1.3}
+    .lead{color:var(--muted);font-size:1.05rem}
+
+    header{
+      position:fixed;inset:0 0 auto;z-index:1000;
+      background:rgba(7,17,31,.76);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--line)
+    }
+    nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:700;font-size:1.06rem}
+    .brand span{color:var(--cyan)}
+    .nav-links{display:flex;align-items:center;gap:24px;font-size:.93rem;font-weight:600}
+    .nav-links a:hover{color:var(--cyan)}
+    .menu-btn{display:none;border:0;background:none;color:#fff;font-size:1.6rem;cursor:pointer}
+
+    .hero{
+      min-height:100vh;display:grid;align-items:center;
+      position:relative;overflow:hidden;padding:128px 0 82px
+    }
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:68px;align-items:center}
+    .hero p{max-width:690px;color:var(--muted);font-size:1.12rem;margin:24px 0 32px}
+    .accent{color:var(--cyan)}
+    .actions{display:flex;flex-wrap:wrap;gap:14px}
+    .btn{
+      min-height:52px;padding:0 22px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      font-weight:700;border:1px solid transparent;transition:.25s
+    }
+    .btn-primary{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#06111e}
+    .btn-primary:hover{transform:translateY(-3px)}
+    .btn-secondary{border-color:var(--line);background:rgba(255,255,255,.04)}
+    .btn-secondary:hover{border-color:var(--cyan);color:var(--cyan)}
+    .hero-card{
+      position:relative;background:linear-gradient(145deg,var(--panel2),var(--panel));
+      border:1px solid var(--line);border-radius:34px;padding:16px;
+      box-shadow:var(--shadow);transform:rotate(1.5deg)
+    }
+    .hero-card img{height:560px;object-fit:cover;border-radius:24px}
+    .hero-note{
+      position:absolute;left:-30px;bottom:34px;
+      background:rgba(5,16,28,.94);border:1px solid var(--line);
+      border-radius:16px;padding:15px 18px;box-shadow:var(--shadow);
+      transform:rotate(-1.5deg);font-weight:700
+    }
+    .hero-note small{display:block;color:var(--muted);font-weight:500}
+    .orb{position:absolute;border-radius:50%;opacity:.28;filter:blur(2px)}
+    .orb.one{width:260px;height:260px;background:var(--blue);right:-90px;top:90px}
+    .orb.two{width:180px;height:180px;background:var(--cyan);left:-90px;bottom:50px}
+
+    .snapshot{margin-top:-42px;position:relative;z-index:5}
+    .snapshot-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      background:rgba(13,27,45,.94);border:1px solid var(--line);
+      border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)
+    }
+    .metric{padding:28px;text-align:center}
+    .metric + .metric{border-left:1px solid var(--line)}
+    .metric strong{display:block;color:var(--cyan);font-size:1.55rem}
+    .metric span{color:var(--muted);font-size:.9rem}
+
+    .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:center}
+    .about-media{
+      border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+      background:var(--panel);box-shadow:var(--shadow);padding:14px
+    }
+    .about-media img{height:540px;object-fit:cover;border-radius:14px}
+    .about-copy p+p{margin-top:16px}
+    .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+    .tag{
+      padding:9px 14px;border-radius:999px;
+      background:rgba(87,212,208,.10);border:1px solid rgba(87,212,208,.24);
+      color:var(--cyan);font-size:.87rem;font-weight:600
+    }
+
+    .experience{background:rgba(255,255,255,.02)}
+    .experience-grid{display:grid;gap:22px}
+    .experience-card{
+      position:relative;display:grid;grid-template-columns:150px 1fr;gap:28px;
+      padding:30px;border:1px solid var(--line);border-radius:var(--radius);
+      background:linear-gradient(145deg,var(--panel),var(--panel2));
+      box-shadow:0 16px 40px rgba(0,0,0,.18);overflow:hidden
+    }
+    .experience-card::before{
+      content:"";position:absolute;inset:0 auto 0 0;width:5px;
+      background:linear-gradient(var(--blue),var(--cyan),var(--gold))
+    }
+    .date{color:var(--cyan);font-weight:700}
+    .date span{display:block;color:var(--muted);font-size:.82rem;font-weight:500;margin-top:5px}
+    .experience-card h3{font-size:1.34rem;margin-bottom:5px}
+    .company{color:var(--gold);font-weight:700;margin-bottom:9px}
+    .experience-card p,.experience-card li{color:var(--muted)}
+    .experience-card ul{padding-left:19px;margin-top:13px}
+    .experience-card li+li{margin-top:7px}
+
+    .interest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .interest-card{
+      border-radius:var(--radius);overflow:hidden;background:var(--panel);
+      border:1px solid var(--line);box-shadow:0 14px 36px rgba(0,0,0,.18)
+    }
+    .interest-card img{height:235px;object-fit:cover}
+    .interest-card .content{padding:24px}
+    .interest-card h3{margin-bottom:8px}
+    .interest-card p{color:var(--muted)}
+
+    .education{background:linear-gradient(135deg,#0b1a2e,#102b46)}
+    .timeline{display:grid;gap:18px}
+    .timeline-item{
+      display:grid;grid-template-columns:150px 1fr;gap:26px;
+      padding:26px;border:1px solid var(--line);border-radius:18px;
+      background:rgba(255,255,255,.04)
+    }
+    .timeline-year{color:var(--gold);font-weight:700}
+    .timeline-item p{color:var(--muted)}
+
+    .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .certificate{
+      border-radius:var(--radius);overflow:hidden;background:var(--panel);
+      border:1px solid var(--line);transition:.25s;box-shadow:0 14px 36px rgba(0,0,0,.16)
+    }
+    .certificate:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .certificate-image{aspect-ratio:16/10;overflow:hidden;cursor:zoom-in;background:#fff}
+    .certificate-image img{height:100%;object-fit:cover;transition:.35s}
+    .certificate:hover img{transform:scale(1.035)}
+    .certificate-body{padding:22px}
+    .certificate-body h3{margin-bottom:7px}
+    .certificate-body p{color:var(--muted);font-size:.93rem}
+    .label{
+      display:inline-block;margin-top:14px;color:var(--cyan);
+      text-transform:uppercase;letter-spacing:.09em;font-size:.76rem;font-weight:700
+    }
+
+    .contact-card{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:34px;
+      padding:48px;border-radius:30px;
+      background:linear-gradient(135deg,rgba(77,163,255,.95),rgba(14,38,66,.98));
+      box-shadow:var(--shadow)
+    }
+    .contact-card h2{margin-bottom:14px}
+    .contact-card p{color:#d9e8f4}
+    .contact-links{display:grid;gap:12px;align-content:center}
+    .contact-link{
+      padding:15px 18px;border-radius:14px;
+      background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);
+      font-weight:600
+    }
+    .contact-link:hover{background:rgba(255,255,255,.17)}
+
+    footer{text-align:center;color:var(--muted);padding:30px 0;font-size:.9rem}
+
+    .modal{
+      position:fixed;inset:0;z-index:2000;display:none;place-items:center;
+      padding:24px;background:rgba(2,10,18,.91)
+    }
+    .modal.open{display:grid}
+    .modal img{max-width:min(1100px,95vw);max-height:88vh;object-fit:contain;border-radius:12px}
+    .close{
+      position:fixed;right:24px;top:16px;border:0;background:none;
+      color:#fff;font-size:2.4rem;cursor:pointer
+    }
+
+    .reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:920px){
+      .hero-grid,.about-grid,.contact-card{grid-template-columns:1fr}
+      .hero-card{max-width:610px;margin:auto}
+      .snapshot-grid{grid-template-columns:repeat(2,1fr)}
+      .metric:nth-child(3){border-left:0;border-top:1px solid var(--line)}
+      .metric:nth-child(4){border-top:1px solid var(--line)}
+      .interest-grid{grid-template-columns:1fr 1fr}
+    }
+
+    @media(max-width:720px){
+      .section{padding:74px 0}
+      .menu-btn{display:block}
+      .nav-links{
+        position:absolute;left:18px;right:18px;top:84px;
+        display:none;flex-direction:column;padding:20px;
+        background:var(--panel);border:1px solid var(--line);
+        border-radius:18px;box-shadow:var(--shadow)
+      }
+      .nav-links.open{display:flex}
+      .hero{min-height:auto}
+      .hero-card img{height:430px}
+      .hero-note{left:10px}
+      .experience-card,.timeline-item{grid-template-columns:1fr;gap:10px}
+      .interest-grid,.gallery{grid-template-columns:1fr}
+      .contact-card{padding:30px 22px}
+    }
+
+    @media(max-width:480px){
+      .snapshot-grid{grid-template-columns:1fr}
+      .metric+.metric,.metric:nth-child(3),.metric:nth-child(4){
+        border-left:0;border-top:1px solid var(--line)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    IMPORTANT:
+    Keep index.html and all image files in the SAME GitHub repository folder.
+    Do not place the images inside an assets folder.
+  -->
+  <header>
+    <nav class="container">
+      <a href="#home" class="brand">Mahmoud<span>.</span></a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#interests">Clinical Interests</a>
+        <a href="#education">Education</a>
+        <a href="#certificates">Credentials</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="orb one"></div>
+      <div class="orb two"></div>
+
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Physiotherapy · Rehabilitation · Patient Safety</span>
+          <h1>Movement. Recovery. <span class="accent">Confidence.</span></h1>
+          <p>
+            I’m Mahmoud Farouk, an ICU and orthopedic physical therapist focused on
+            evidence-based rehabilitation, patient safety and restoring meaningful function.
+          </p>
+
+          <div class="actions">
+            <a href="#experience" class="btn btn-primary">Explore my work</a>
+            <a href="#contact" class="btn btn-secondary">Contact me</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="spine-consultation.jpg" alt="Spine consultation and rehabilitation">
+          <div class="hero-note">
+            ICU & Orthopedic Physiotherapist
+            <small>Egypt · Clinical practice since 2021</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="snapshot">
+      <div class="container snapshot-grid">
+        <div class="metric"><strong>2024–Now</strong><span>ICU physiotherapy</span></div>
+        <div class="metric"><strong>2+ Years</strong><span>Orthopedic practice</span></div>
+        <div class="metric"><strong>8+</strong><span>Professional credentials</span></div>
+        <div class="metric"><strong>18 Hours</strong><span>Conference credit</span></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="about">
+      <div class="container about-grid">
+        <div class="about-media">
+          <img src="thoracic-anatomy.jpg" alt="Thoracic spine anatomy illustration">
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">About me</span>
+          <h2>Clinical care shaped by curiosity and responsibility.</h2>
+          <p class="lead">
+            My professional journey brings together critical care, musculoskeletal
+            rehabilitation, hospital training and ongoing scientific education.
+          </p>
+          <p>
+            I work with patients who need safe mobility, functional recovery,
+            exercise-based rehabilitation and clear education throughout their treatment.
+          </p>
+          <p>
+            I am especially interested in ICU rehabilitation, orthopedic recovery,
+            spine care, post-operative rehabilitation, patient safety and clinical nutrition.
+          </p>
+
+          <div class="tags">
+            <span class="tag">ICU Physiotherapy</span>
+            <span class="tag">Orthopedic Rehabilitation</span>
+            <span class="tag">Spine Care</span>
+            <span class="tag">Patient Safety</span>
+            <span class="tag">Exercise Therapy</span>
+            <span class="tag">Clinical Nutrition</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience reveal" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Professional experience</span>
+          <h2>From acute care to functional recovery.</h2>
+          <p class="lead">
+            Hands-on clinical experience in intensive care and orthopedic rehabilitation.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-card">
+            <div class="date">
+              Apr 2024–Present
+              <span>Full-time · On-site</span>
+            </div>
+            <div>
+              <h3>ICU Physical Therapist</h3>
+              <div class="company">Ministry of Health & Population — Egypt</div>
+              <p>Kafr El-Sheikh, Egypt</p>
+              <ul>
+                <li>Support critically ill patients through safe positioning and mobility.</li>
+                <li>Contribute to prevention of complications related to prolonged immobility.</li>
+                <li>Work with multidisciplinary healthcare teams in a high-responsibility environment.</li>
+                <li>Apply problem-solving, communication and team-management skills.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-card">
+            <div class="date">
+              Oct 2021–Nov 2023
+              <span>Part-time · On-site</span>
+            </div>
+            <div>
+              <h3>Orthopedic Physical Therapist</h3>
+              <div class="company">Alexandria PT Center</div>
+              <p>Alexandria, Egypt</p>
+              <ul>
+                <li>Assessed and treated orthopedic and musculoskeletal conditions.</li>
+                <li>Designed individualized exercise and rehabilitation programs.</li>
+                <li>Supported post-operative recovery, pain management and functional movement.</li>
+                <li>Educated patients about home programs and long-term recovery.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="interests">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Clinical interests</span>
+          <h2>Areas that shape my practice.</h2>
+          <p class="lead">
+            A visual look at the rehabilitation areas I continue to study and apply.
+          </p>
+        </div>
+
+        <div class="interest-grid">
+          <article class="interest-card">
+            <img src="spine-sections.jpeg" alt="Spine anatomy sections">
+            <div class="content">
+              <h3>Spine Rehabilitation</h3>
+              <p>Posture, mobility, pain management and progressive exercise.</p>
+            </div>
+          </article>
+
+          <article class="interest-card">
+            <img src="thoracic-anatomy.jpg" alt="Thoracic spine anatomy">
+            <div class="content">
+              <h3>Thoracic & Rib Mechanics</h3>
+              <p>Understanding anatomy to support movement and functional care.</p>
+            </div>
+          </article>
+
+          <article class="interest-card">
+            <img src="spine-consultation.jpg" alt="Professional explaining a spine model">
+            <div class="content">
+              <h3>Patient Education</h3>
+              <p>Clear explanations that help patients participate in recovery.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section education reveal" id="education">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Education & development</span>
+          <h2>Academic foundations with continuous learning.</h2>
+          <p class="lead">
+            Formal education, hospital-based training and specialized professional programs.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-year">2015–2020</div>
+            <div>
+              <h3>Bachelor of Physical Therapy</h3>
+              <p>Faculty of Physical Therapy, Pharos University in Alexandria.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-year">2021</div>
+            <div>
+              <h3>Professional Diploma in Clinical Nutrition and Obesity Management</h3>
+              <p>Completed with an Excellent grade.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-year">2021–2022</div>
+            <div>
+              <h3>Clinical Internship</h3>
+              <p>
+                Rotations across orthopedics, neurology, pediatrics, internal medicine,
+                surgery, women’s health and elective specialties.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-year">2025–2026</div>
+            <div>
+              <h3>Scientific Conferences & Patient Safety Training</h3>
+              <p>
+                Continued development in rehabilitation, physiotherapy and healthcare quality.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="certificates">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Credentials</span>
+          <h2>Certificates that document the journey.</h2>
+          <p class="lead">Click any image to view the complete certificate.</p>
+        </div>
+
+        <div class="gallery">
+          <article class="certificate">
+            <div class="certificate-image" data-image="degree.jpeg">
+              <img src="degree.jpeg" alt="Bachelor degree certificate">
+            </div>
+            <div class="certificate-body">
+              <h3>Bachelor of Physical Therapy</h3>
+              <p>Pharos University in Alexandria.</p>
+              <span class="label">Academic degree</span>
+            </div>
+          </article>
+
+          <article class="certificate">
+            <div class="certificate-image" data-image="internship.jpeg">
+              <img src="internship.jpeg" alt="Physical therapy internship certificate">
+            </div>
+            <div class="certificate-body">
+              <h3>Clinical Internship</h3>
+              <p>Hospital rotations across core physical therapy specialties.</p>
+              <span class="label">Clinical training</span>
+            </div>
+          </article>
+
+          <article class="certificate">
+            <div class="certificate-image" data-image="patient-safety.jpeg">
+              <img src="patient-safety.jpeg" alt="Patient Safety Ambassador certificate">
+            </div>
+            <div class="certificate-body">
+              <h3>Patient Safety Ambassador</h3>
+              <p>Training in cooperation with WHO Egypt.</p>
+              <span class="label">Patient safety</span>
+            </div>
+          </article>
+
+          <article class="certificate">
+            <div class="certificate-image" data-image="nutrition-diploma.jpeg">
+              <img src="nutrition-diploma.jpeg" alt="Clinical Nutrition diploma">
+            </div>
+            <div class="certificate-body">
+              <h3>Clinical Nutrition & Obesity Management</h3>
+              <p>Professional diploma completed with an Excellent grade.</p>
+              <span class="label">Professional diploma</span>
+            </div>
+          </article>
+
+          <article class="certificate">
+            <div class="certificate-image" data-image="acl-certificate.jpeg">
+              <img src="acl-certificate.jpeg" alt="ACL rehabilitation certificate">
+            </div>
+            <div class="certificate-body">
+              <h3>ACL Reconstruction & Rehabilitation</h3>
+              <p>Scientific day at Borg El Arab Hospital.</p>
+              <span class="label">Scientific attendance</span>
+            </div>
+          </article>
+
+          <article class="certificate">
+            <div class="certificate-image" data-image="alex-conference.jpeg">
+              <img src="alex-conference.jpeg" alt="Alex Physical Therapy conference certificate">
+            </div>
+            <div class="certificate-body">
+              <h3>8th Alex Physical Therapy Conference</h3>
+              <p>Physical Therapy from Disability to Ability · 18 credit hours.</p>
+              <span class="label">Conference</span>
+            </div>
+          </article>
+
+          <article class="certificate">
+            <div class="certificate-image" data-image="international-conference.jpeg">
+              <img src="international-conference.jpeg" alt="International physiotherapy conference certificate">
+            </div>
+            <div class="certificate-body">
+              <h3>7th International Scientific Conference</h3>
+              <p>Physiotherapy and rehabilitation, Cairo.</p>
+              <span class="label">Conference</span>
+            </div>
+          </article>
+
+          <article class="certificate">
+            <div class="certificate-image" data-image="nutrition-certificate.jpeg">
+              <img src="nutrition-certificate.jpeg" alt="Clinical nutrition certificate">
+            </div>
+            <div class="certificate-body">
+              <h3>Clinical Nutrition Certificate</h3>
+              <p>Certified professional training.</p>
+              <span class="label">Nutrition</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <span class="eyebrow">Contact</span>
+            <h2>Let’s connect.</h2>
+            <p>
+              I’m open to clinical opportunities, rehabilitation collaborations
+              and professional development.
+            </p>
+          </div>
+
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:mahmoudfarouk58@gmail.com">
+              Email: mahmoudfarouk58@gmail.com
+            </a>
+
+            <a class="contact-link"
+               href="https://www.linkedin.com/in/mahmoud-farouk-437a31346/"
+               target="_blank" rel="noreferrer">
+              LinkedIn: Mahmoud Farouk
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Mahmoud Farouk. All rights reserved.
+  </footer>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <button class="close" id="closeModal" aria-label="Close">×</button>
+    <img id="modalImage" src="" alt="Expanded certificate">
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const modal = document.getElementById("modal");
+    const modalImage = document.getElementById("modalImage");
+    const closeModal = document.getElementById("closeModal");
+
+    document.querySelectorAll(".certificate-image").forEach(item => {
+      item.addEventListener("click", () => {
+        modalImage.src = item.dataset.image;
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function hideModal(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      modalImage.src = "";
+      document.body.style.overflow = "";
+    }
+
+    closeModal.addEventListener("click", hideModal);
+    modal.addEventListener("click", event => {
+      if(event.target === modal) hideModal();
+    });
+    document.addEventListener("keydown", event => {
+      if(event.key === "Escape") hideModal();
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
